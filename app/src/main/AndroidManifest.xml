@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomDatabase">
         <activity
+            android:name=".Views.UpdateActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Views.SelectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Views.RemoveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Views.InsertActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
