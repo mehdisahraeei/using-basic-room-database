@@ -2,11 +2,9 @@ package com.mahdi.roomdatabase.model;
 
 public class SelectModel {
 
-    public String name;
-    public int age;
+    public String text;
 
-    public SelectModel(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public SelectModel(String text) {
+        this.text = text;
     }
 }

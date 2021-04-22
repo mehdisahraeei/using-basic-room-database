@@ -6,27 +6,19 @@ import com.mahdi.roomdatabase.model.SelectModel;
 
 public class SelectViewModel extends BaseObservable {
 
-    public String name;
-    public int age;
+    public String text;
 
     public SelectViewModel(SelectModel model) {
-        this.name = model.name;
-        this.age = model.age;
+        this.text = model.text;
     }
 
-    public String getName() {
-        return name;
+    public String getText() {
+        return text;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public int getAge() {
-        return age;
-    }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
 }

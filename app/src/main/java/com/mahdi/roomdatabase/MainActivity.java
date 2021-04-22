@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void SelectClick(View view) {
+
                 startActivity(new Intent(MainActivity.this, SelectActivity.class));
             }
 
