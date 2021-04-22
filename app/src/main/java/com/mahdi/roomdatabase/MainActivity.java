@@ -5,7 +5,6 @@ import androidx.databinding.DataBindingUtil;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.mahdi.roomdatabase.Data.database.DatabaseNew;
 import com.mahdi.roomdatabase.Views.InsertActivity;
 import com.mahdi.roomdatabase.Views.RemoveActivity;
 import com.mahdi.roomdatabase.Views.SelectActivity;
@@ -24,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
 
 
         binding.setMainClick(new ClickListener() {
