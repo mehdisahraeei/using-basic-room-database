@@ -4,9 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="update"
             type="com.mahdi.roomdatabase.viewmodel.UpdateViewModel" />
+
+        <variable
+            name="updateClick"
+            type="com.mahdi.roomdatabase.clicks.UpdateClicks" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,22 +21,68 @@
         tools:context=".Views.UpdateActivity">
 
 
-
-
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="57dp"
+            android:layout_marginTop="49dp"
+            android:layout_marginBottom="112dp"
             android:text="Update"
             android:textColor="@color/black"
             android:textSize="35dp"
+            app:layout_constraintBottom_toTopOf="@+id/e1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/e1"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="45dp"
+            android:hint="id: "
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/e2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/e2"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="46dp"
+            android:hint="Name: "
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/e3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/e1" />
+
+        <EditText
+            android:id="@+id/e3"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="83dp"
+            android:hint="age: "
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/e2" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="199dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="137dp"
+            android:onClick="@{(v) -> updateClick.ClickUpdate(v)}"
+            android:text="Update"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.078" />
-
+            app:layout_constraintTop_toBottomOf="@+id/e3" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

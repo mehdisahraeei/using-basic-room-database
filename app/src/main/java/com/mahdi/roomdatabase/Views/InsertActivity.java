@@ -5,16 +5,19 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.mahdi.roomdatabase.Data.database.DatabaseNew;
 import com.mahdi.roomdatabase.Data.entity.Contact;
 import com.mahdi.roomdatabase.R;
-import com.mahdi.roomdatabase.clicks.Clicks;
+import com.mahdi.roomdatabase.clicks.InsertClicks;
 import com.mahdi.roomdatabase.databinding.ActivityInsertBinding;
 import com.mahdi.roomdatabase.viewmodel.MainModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +28,7 @@ public class InsertActivity extends AppCompatActivity {
     private DatabaseNew database;
     private MainModel mainModel;
     private EditText editText1, editText2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +43,10 @@ public class InsertActivity extends AppCompatActivity {
         mainModel.getLiveData().setValue(database);
 
 
-        binding.setInsertClick(new Clicks() {
+        binding.setInsertClick(new InsertClicks() {
             @Override
             public void ClickInsert(View view) {
                 Add();
-                Toast.makeText(InsertActivity.this, "Saved", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -51,6 +54,7 @@ public class InsertActivity extends AppCompatActivity {
         Observer<DatabaseNew> observer = new Observer<DatabaseNew>() {
             @Override
             public void onChanged(DatabaseNew databaseNew) {
+                //-------------------------------------------------
             }
         };
 
@@ -58,9 +62,23 @@ public class InsertActivity extends AppCompatActivity {
     }
 
 
+
+
+
+
     private void Add() {
         List<Contact> list = new ArrayList<>();
-        list.add(new Contact(editText1.getText().toString(), Integer.parseInt(editText2.getText().toString())));
-        database.getContactDAO().insertAll(list);
+
+        if (((editText1.getText().toString().isEmpty() & (editText2.getText().toString().isEmpty())))) {
+            Toast.makeText(this, "Values are Wrong! please Enter Again.", Toast.LENGTH_SHORT).show();
+        } else {
+            list.add(new Contact(editText1.getText().toString(), Integer
+                    .parseInt(editText2.getText().toString())));
+            database.getContactDAO().insertAll(list);
+            Toast.makeText(InsertActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+        }
     }
+
+
+
 }

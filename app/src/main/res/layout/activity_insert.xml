@@ -10,7 +10,7 @@
 
         <variable
             name="insertClick"
-            type="com.mahdi.roomdatabase.clicks.Clicks" />
+            type="com.mahdi.roomdatabase.clicks.InsertClicks" />
 
 
     </data>

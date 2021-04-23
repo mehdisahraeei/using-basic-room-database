@@ -7,8 +7,8 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.mahdi.roomdatabase.Data.entity.Contact;
-import java.util.List;
 
+import java.util.List;
 
 
 @Dao
@@ -28,5 +28,8 @@ public interface ContactDAO {
     @Query("SELECT * FROM Contact")
     public List<Contact> getAll();
 
+
+    @Query("SELECT * FROM Contact WHERE ID= :id")
+    public List<Contact> getContactID(int id);
 
 }
