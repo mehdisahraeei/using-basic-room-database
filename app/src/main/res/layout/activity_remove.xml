@@ -9,6 +9,11 @@
         <variable
             name="remove"
             type="com.mahdi.roomdatabase.viewmodel.RemoveViewModel" />
+
+        <variable
+            name="removeClick"
+            type="com.mahdi.roomdatabase.clicks.RemoveClicks" />
+
     </data>
 
 
@@ -34,6 +39,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.078" />
 
+
+    <EditText
+        android:id="@+id/tR"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="160dp"
+        android:hint="id: "
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/e2" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="199dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="176dp"
+        android:text="remove"
+        android:onClick="@{(v) -> removeClick.ClickRemove(v)}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/e3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
