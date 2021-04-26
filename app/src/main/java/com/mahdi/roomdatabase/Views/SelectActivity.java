@@ -31,15 +31,18 @@ public class SelectActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_select);
 
         textView = findViewById(R.id.textselect);
-        database = Room.databaseBuilder(this, DatabaseNew.class, "db1").allowMainThreadQueries().build();
+        database = DatabaseNew.getDatabase(this);
         mainModel = new ViewModelProvider(this).get(MainModel.class);
         mainModel.getLiveData().setValue(database);
+
+
 
 
         Observer<DatabaseNew> observer = new Observer<DatabaseNew>() {
             @Override
             public void onChanged(DatabaseNew databaseNew) {
-                List<Contact> contacts = databaseNew.getContactDAO().getAll();
+
+                List<Contact> contacts = databaseNew.contactDAO().getAll();
                 try {
                     for (int i = 0; i < contacts.size(); i++)
                         textView.append(contacts.get(i).getID() + "      name: " + contacts.get(i).getName()
@@ -51,6 +54,9 @@ public class SelectActivity extends AppCompatActivity {
             }
         };
         mainModel.getLiveData().observe(this, observer);
+
+
+
 
     }
 }

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.room.Room;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -32,7 +31,7 @@ public class RemoveActivity extends AppCompatActivity {
 
         editText = findViewById(R.id.tR);
 
-        database = Room.databaseBuilder(this, DatabaseNew.class, "db1").allowMainThreadQueries().build();
+        database=DatabaseNew.getDatabase(this);
         mainModel = new ViewModelProvider(this).get(MainModel.class);
         mainModel.getLiveData().setValue(database);
 
@@ -50,7 +49,7 @@ public class RemoveActivity extends AppCompatActivity {
                         } else {
                             Contact contact = new Contact();
                             contact.setID(Integer.parseInt(editText.getText().toString()));
-                            databaseNew.getContactDAO().Delete(contact);
+                            databaseNew.contactDAO().Delete(contact);
                             Toast.makeText(RemoveActivity.this, "Removed", Toast.LENGTH_SHORT).show();
                         }
                     }

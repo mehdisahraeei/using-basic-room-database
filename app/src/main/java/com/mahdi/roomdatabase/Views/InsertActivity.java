@@ -4,22 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.room.Room;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.mahdi.roomdatabase.Data.database.DatabaseNew;
 import com.mahdi.roomdatabase.Data.entity.Contact;
 import com.mahdi.roomdatabase.R;
 import com.mahdi.roomdatabase.clicks.InsertClicks;
 import com.mahdi.roomdatabase.databinding.ActivityInsertBinding;
 import com.mahdi.roomdatabase.viewmodel.MainModel;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 public class InsertActivity extends AppCompatActivity {
@@ -38,7 +35,7 @@ public class InsertActivity extends AppCompatActivity {
         editText2 = findViewById(R.id.edit2);
 
 
-        database = Room.databaseBuilder(this, DatabaseNew.class, "db1").allowMainThreadQueries().build();
+        database = DatabaseNew.getDatabase(this);
         mainModel = new ViewModelProvider(this).get(MainModel.class);
         mainModel.getLiveData().setValue(database);
 
@@ -64,8 +61,6 @@ public class InsertActivity extends AppCompatActivity {
 
 
 
-
-
     private void Add() {
         List<Contact> list = new ArrayList<>();
 
@@ -74,10 +69,11 @@ public class InsertActivity extends AppCompatActivity {
         } else {
             list.add(new Contact(editText1.getText().toString(), Integer
                     .parseInt(editText2.getText().toString())));
-            database.getContactDAO().insertAll(list);
+            database.contactDAO().insertAll(list);
             Toast.makeText(InsertActivity.this, "Saved", Toast.LENGTH_SHORT).show();
         }
     }
+
 
 
 
