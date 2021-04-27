@@ -16,14 +16,17 @@ public class Contact {
     private String name;
     @ColumnInfo(name = "Age")
     private int age;
+    @ColumnInfo(name = "Image")
+    private int image;
 
 
     public Contact() {
     }
 
-    public Contact(String name, int age) {
+    public Contact(String name, int age, int image) {
         this.name = name;
         this.age = age;
+        this.image = image;
     }
 
     public int getID() {
@@ -50,4 +53,12 @@ public class Contact {
         this.age = age;
     }
 
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
+    }
 }

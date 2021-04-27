@@ -41,8 +41,6 @@ public class UpdateActivity extends AppCompatActivity {
 
 
 
-
-
         Observer<DatabaseNew> observer=new Observer<DatabaseNew>() {
             @Override
             public void onChanged(DatabaseNew databaseNew) {
@@ -56,7 +54,7 @@ public class UpdateActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            Contact contact=new Contact(editText2.getText().toString(),Integer.parseInt(editText3.getText().toString()));
+                            Contact contact=new Contact(editText2.getText().toString(),Integer.parseInt(editText3.getText().toString()),R.drawable.ic_launcher);
                             contact.setID(Integer.parseInt(editText1.getText().toString()));
                             databaseNew.contactDAO().Update(contact);
                             Toast.makeText(UpdateActivity.this, "Updated", Toast.LENGTH_SHORT).show();
@@ -65,6 +63,7 @@ public class UpdateActivity extends AppCompatActivity {
                 });
             }
         };
+
 
         mainModel.getLiveData().observe(this,observer);
 

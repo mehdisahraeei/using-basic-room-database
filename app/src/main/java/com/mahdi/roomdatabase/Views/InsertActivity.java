@@ -18,13 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class InsertActivity extends AppCompatActivity {
 
     private ActivityInsertBinding binding;
     private DatabaseNew database;
     private MainModel mainModel;
-    private EditText editText1, editText2;
+    private EditText editText1, editText2, editText3;
 
 
     @Override
@@ -33,6 +32,7 @@ public class InsertActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_insert);
         editText1 = findViewById(R.id.edit1);
         editText2 = findViewById(R.id.edit2);
+        editText3 = findViewById(R.id.edit3);
 
 
         database = DatabaseNew.getDatabase(this);
@@ -45,6 +45,7 @@ public class InsertActivity extends AppCompatActivity {
             public void ClickInsert(View view) {
                 Add();
             }
+
         });
 
 
@@ -59,21 +60,26 @@ public class InsertActivity extends AppCompatActivity {
     }
 
 
-
-
     private void Add() {
         List<Contact> list = new ArrayList<>();
 
         if (((editText1.getText().toString().isEmpty() & (editText2.getText().toString().isEmpty())))) {
             Toast.makeText(this, "Values are Wrong! please Enter Again.", Toast.LENGTH_SHORT).show();
         } else {
-            list.add(new Contact(editText1.getText().toString(), Integer
-                    .parseInt(editText2.getText().toString())));
+            if (editText3.getText().toString().equals("1")) {
+                list.add(new Contact(editText1.getText().toString(), Integer
+                        .parseInt(editText2.getText().toString()), R.drawable.p1));
+            }if (editText3.getText().toString().equals("2")) {
+                list.add(new Contact(editText1.getText().toString(), Integer
+                        .parseInt(editText2.getText().toString()), R.drawable.p2));
+            }if (editText3.getText().toString().equals("3")) {
+                list.add(new Contact(editText1.getText().toString(), Integer
+                        .parseInt(editText2.getText().toString()), R.drawable.p3));
+            }
             database.contactDAO().insertAll(list);
             Toast.makeText(InsertActivity.this, "Saved", Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
 

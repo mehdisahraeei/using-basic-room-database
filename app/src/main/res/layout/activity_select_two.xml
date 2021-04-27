@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <data>
+        <variable
+            name="SelectTwo"
+            type="com.mahdi.roomdatabase.viewmodel.SelectTwoViewModel" />
+
+        <variable
+            name="SelectTwoClick"
+            type="com.mahdi.roomdatabase.clicks.InsertTwoClicks" />
+    </data>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="25dp"
+        android:background="@drawable/bdpagepro"
+        tools:context=".Views.SelectTwoActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="57dp"
+            android:text="Select(images)"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+
+        <ImageView
+            android:id="@+id/img_St"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <EditText
+                android:id="@+id/editTwo"
+                android:layout_width="200dp"
+                android:layout_height="67dp"
+                android:hint="Image(number[0_..]): "/>
+
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="67dp"
+                android:onClick="@{(v) -> SelectTwoClick.ClickInsert(v)}"
+                android:text="select"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</layout>

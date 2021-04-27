@@ -4,11 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.room.Room;
-
 import android.os.Bundle;
 import android.widget.TextView;
-
 import com.mahdi.roomdatabase.Data.database.DatabaseNew;
 import com.mahdi.roomdatabase.Data.entity.Contact;
 import com.mahdi.roomdatabase.R;
@@ -24,11 +21,11 @@ public class SelectActivity extends AppCompatActivity {
     private MainModel mainModel;
     private TextView textView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_select);
+
 
         textView = findViewById(R.id.textselect);
         database = DatabaseNew.getDatabase(this);
@@ -44,9 +41,10 @@ public class SelectActivity extends AppCompatActivity {
 
                 List<Contact> contacts = databaseNew.contactDAO().getAll();
                 try {
-                    for (int i = 0; i < contacts.size(); i++)
+                    for (int i = 0; i < contacts.size(); i++) {
                         textView.append(contacts.get(i).getID() + "      name: " + contacts.get(i).getName()
-                                + "      age: " + contacts.get(i).getAge() + "\n");
+                                + "      age: " + contacts.get(i).getAge() +"\n");
+                    }
                 } catch (Exception e) {
                     e.getStackTrace();
                 }
