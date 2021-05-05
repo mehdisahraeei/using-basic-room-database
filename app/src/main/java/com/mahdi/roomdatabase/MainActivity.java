@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import com.mahdi.roomdatabase.Views.InsertActivity;
 import com.mahdi.roomdatabase.Views.RemoveActivity;
+import com.mahdi.roomdatabase.Views.SearchActivity;
 import com.mahdi.roomdatabase.Views.SelectActivity;
 import com.mahdi.roomdatabase.Views.SelectTwoActivity;
 import com.mahdi.roomdatabase.Views.UpdateActivity;
@@ -66,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
             public void UpdateClick(View view) {
                 startActivity(new Intent(MainActivity.this, UpdateActivity.class));
             }
+
+
+            @Override
+            public void SearchClick(View view) {
+                startActivity(new Intent(MainActivity.this, SearchActivity.class));
+            }
+
+
         });
 
 

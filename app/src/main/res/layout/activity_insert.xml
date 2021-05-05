@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="insert"
             type="com.mahdi.roomdatabase.viewmodel.InsertViewModel" />
@@ -13,12 +14,11 @@
             type="com.mahdi.roomdatabase.clicks.InsertClicks" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bdpagepro"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="@+id/editText"
+        android:padding="25dp"
         tools:context=".Views.InsertActivity">
 
 
@@ -26,67 +26,63 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="49dp"
-            android:layout_marginBottom="93dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:text="Insert"
             android:textColor="@color/black"
-            android:textSize="35dp"
-            app:layout_constraintBottom_toTopOf="@+id/edit1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="35dp" />
 
 
-        <EditText
-            android:id="@+id/edit1"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_marginBottom="17dp"
-            android:hint="Name: "
-            android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@+id/edit2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <LinearLayout
+            android:id="@+id/lin1"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_below="@+id/textView"
+            android:gravity="center"
+            android:orientation="vertical">
 
 
-        <EditText
-            android:id="@+id/edit2"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_marginBottom="28dp"
-            android:hint="age: "
-            android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/editText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit1" />
-
-        <EditText
-            android:id="@+id/edit3"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_marginBottom="80dp"
-            android:background="@drawable/bde"
-            android:hint="Select image(with number)"
-            app:layout_constraintBottom_toTopOf="@+id/b"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit2" />
-
-        <Button
-            android:id="@+id/b"
-            android:layout_width="200dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="139dp"
-            android:onClick="@{(v) -> insertClick.ClickInsert(v)}"
-            android:text="save"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <EditText
+                android:id="@+id/edit1"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginBottom="17dp"
+                android:hint="Name: "
+                android:inputType="text" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/edit2"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:hint="age: "
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/edit3"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/bde"
+                android:hint="Select image(with number)" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+
+            <Button
+                android:id="@+id/b"
+                android:layout_width="200dp"
+                android:layout_height="66dp"
+                android:onClick="@{(v) -> insertClick.ClickInsert(v)}"
+                android:text="save" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 
 </layout>

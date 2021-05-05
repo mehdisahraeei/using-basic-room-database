@@ -12,5 +12,8 @@ public interface ClickListener {
 
     public void UpdateClick(View view);
 
+    public void SearchClick(View view);
+
+
 
 }

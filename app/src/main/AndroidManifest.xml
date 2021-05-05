@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomDatabase">
         <activity
-            android:name=".Views.SelectTwoActivity"
+            android:name=".Views.SearchActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Views.SelectTwoActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Views.UpdateActivity"
             android:screenOrientation="portrait" />

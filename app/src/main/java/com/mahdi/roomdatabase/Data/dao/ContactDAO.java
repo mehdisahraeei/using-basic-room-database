@@ -1,5 +1,6 @@
 package com.mahdi.roomdatabase.Data.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -29,7 +30,8 @@ public interface ContactDAO {
     public List<Contact> getAll();
 
 
-    @Query("SELECT * FROM Contact WHERE ID= :id")
-    public List<Contact> getContactID(int id);
+    @Query("SELECT * FROM Contact WHERE Name LIKE :n")
+    public List<Contact> getContactList(String n);
+
 
 }
