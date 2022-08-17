@@ -9,7 +9,7 @@ add the dependency in your build.gradle.
 ```
     def room_version = "2.2.5"
 
-    implementation 'android.arch.lifecycle:extensions:1.1.0'
+    implementation "android.arch.lifecycle:extensions:1.1.0"
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
     implementation "androidx.room:room-guava:$room_version"
