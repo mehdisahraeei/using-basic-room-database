@@ -2,6 +2,7 @@ package com.mahdi.roomdatabase.Data.database;
 
 import android.content.Context;
 import androidx.room.Database;
+import androidx.room.Ignore;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import com.mahdi.roomdatabase.Data.dao.ContactDAO;
@@ -14,6 +15,10 @@ import java.util.List;
 public abstract class DatabaseNew extends RoomDatabase {
 
     private static DatabaseNew database;
+
+    @Ignore
+    public DatabaseNew() {
+    }
 
     public abstract ContactDAO contactDAO();
 
