@@ -1,5 +1,6 @@
 package com.mahdi.roomdatabase.Data.entity;
 
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -53,7 +54,6 @@ public class Contact {
         this.age = age;
     }
 
-
     public int getImage() {
         return image;
     }
@@ -61,4 +61,11 @@ public class Contact {
     public void setImage(int image) {
         this.image = image;
     }
+
+
+    @Override
+    public String toString() {
+        return  "outcome: " + name;
+    }
+
 }
