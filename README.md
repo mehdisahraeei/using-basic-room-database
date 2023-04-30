@@ -3,7 +3,7 @@
 ## Gradle
 
 
-### step1
+### first step
 add the dependency in your build.gradle.
 
 ```
